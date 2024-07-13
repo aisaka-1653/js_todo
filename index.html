@@ -3,9 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css" />
+  <link rel="stylesheet" href="./style.css">
+  <title>ToDo List</title>
 </head>
 <body>
-  
+  <header>
+    <h1>ToDo List</h1>
+  </header>
+  <main>
+    <form id="js-form">
+      <fieldset role="group">
+        <input
+          id="js-form-input"
+          class="new-todo"
+          type="text"
+          placeholder="何をしますか?"
+        />
+        <input
+          id="js-form-submit"
+          type="submit"
+          value="保存"
+        />
+      </fieldset>
+    </form>
+    <hr>
+    <div id="js-todo-list" class="todo-list">
+      <ul>
+        <li>
+          <input type="checkbox">
+          <p class="todo-item-content">task1</p>
+          <button type="button" class="todo-item-btn">編集</button>
+          <button type="button" class="todo-item-btn delete-btn">削除</button>
+        </li>
+        <li>
+          <input type="checkbox">
+          <p class="todo-item-content">task2</p>
+          <button type="button" class="todo-item-btn">編集</button>
+          <button type="button" class="todo-item-btn delete-btn">削除</button>
+        </li>
+      </ul>
+    </div>
+    <hr>
+  </main>
+  <footer>
+    <progress id="js-progress-bar" value="1" max="2"></progress>
+    <div class="todo-progress">
+      <span>
+        <i>全てのタスク : </i>
+        <i id="js-total-tasks">3</i>
+      </span>
+      <span>
+        <i>完了済み : </i>
+        <i id="js-completed-task">2</i>
+      </span>
+      <span>
+        <i>未完了 : </i>
+        <i id="js-pending-tasks">1</i>
+      </span>
+    </div>
+  </footer>
 </body>
 </html>

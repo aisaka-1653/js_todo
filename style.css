@@ -1,0 +1,37 @@
+p, input[type="checkbox"], button[type="button"] {
+  margin: 0;
+}
+
+.todo-list ul li {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-columns: 50px 10fr 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  margin-bottom: 20px;
+}
+
+.todo-item-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.todo-item-btn {
+  border: 0;
+  height: 40px;
+  width: 80px;
+  line-height: 40px;
+  padding: 0;
+}
+
+.delete-btn {
+  background-color: #8a1c42;
+}
+
+.todo-progress {
+  display: flex;
+  justify-content: end;
+  gap: 20px;
+}
