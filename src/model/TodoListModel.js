@@ -37,6 +37,9 @@ export class TodoListModel extends EventTarget {
   }
 
   addTodo(todoItem) {
+    if (todoItem.isEmptyTitle()) {
+      return;
+    }
     this.#items.push(todoItem);
     this.emitChange();
   }
@@ -47,6 +50,15 @@ export class TodoListModel extends EventTarget {
       return;
     }
     todoItem.completed = completed;
+    this.emitChange();
+  }
+
+  editTodo({ id }) {
+    const inputElement = document.createElement('input');
+    inputElement.type = 'text';
+    const todo = this.#items.find(todo => {
+      return todo.id !== id;
+    });
     this.emitChange();
   }
 
