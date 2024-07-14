@@ -12,7 +12,7 @@ p, input[type="checkbox"], button[type="button"] {
   margin-bottom: 20px;
 }
 
-.todo-item-content {
+.todo-item-title {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
