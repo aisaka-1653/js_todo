@@ -1,9 +1,12 @@
+import { TodoItemModel } from "./TodoItemModel.js";
+
 export class TodoListModel extends EventTarget {
   #items;
 
   constructor(items = []) {
     super();
     this.#items = items;
+    this.loadFromStorage();
   }
 
   getTotalCount() {
@@ -34,6 +37,7 @@ export class TodoListModel extends EventTarget {
 
   emitChange() {
     this.dispatchEvent(new Event("change"));
+    this.saveToStorage();
   }
 
   addTodo(todoItem) {
@@ -68,6 +72,18 @@ export class TodoListModel extends EventTarget {
         return todo.id !== id;
       });
       this.emitChange();
+    }
+  }
+
+  saveToStorage() {
+    localStorage.setItem("todo-items", JSON.stringify(this.#items));
+  }
+
+  loadFromStorage() {
+    const todoItems = localStorage.getItem("todo-items");
+    const storedItems = todoItems ? JSON.parse(todoItems) : null;
+    if (storedItems) {
+      this.#items = storedItems.map(item =>new TodoItemModel(item));
     }
   }
 }

@@ -61,5 +61,7 @@ export class App {
       }));
       inputElement.value = "";
     });
+
+    this.#todoListModel.emitChange();
   }
 }
