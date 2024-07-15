@@ -15,6 +15,10 @@ export class App {
     this.#todoListModel.updateTodo({ id, completed });
   }
 
+  handleEdit({ id, title }) {
+    this.#todoListModel.editTodo({ id, title });
+  }
+
   handleDelete({ id }) {
     this.#todoListModel.deleteTodo({ id });
   }
@@ -33,6 +37,9 @@ export class App {
       const todoListElement = this.#todoListView.createElement(todoItems, {
         onUpdateTodo: ({ id, completed }) => {
           this.handleUpdate({ id, completed });
+        },
+        onEditTodo: ({ id, title }) => {
+          this.handleEdit({ id, title });
         },
         onDeleteTodo: ({ id }) => {
           this.handleDelete({ id });

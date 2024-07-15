@@ -53,12 +53,12 @@ export class TodoListModel extends EventTarget {
     this.emitChange();
   }
 
-  editTodo({ id }) {
-    const inputElement = document.createElement('input');
-    inputElement.type = 'text';
-    const todo = this.#items.find(todo => {
-      return todo.id !== id;
-    });
+  editTodo({ id, title }) {
+    const todoItem = this.#items.find(todo => todo.id === id);
+    if (!todoItem) {
+      return;
+    }
+    todoItem.title = title;
     this.emitChange();
   }
 
