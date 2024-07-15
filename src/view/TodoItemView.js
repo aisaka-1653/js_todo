@@ -38,6 +38,8 @@ export class TodoItemView {
       editButtonElement.style.display = "none";
       saveButtonElement.style.display = "inline-block";
       editInputElement.focus();
+      const length = editInputElement.value.length;
+      editInputElement.setSelectionRange(length, length);
     });
 
     saveButtonElement.addEventListener("click", () => {
