@@ -47,6 +47,11 @@ export class TodoItemView {
           id: todoItem.id,
           title: newTitle
         });
+      } else {
+        titleTextElement.style.display = 'inline-block';
+        editInputElement.style.display = 'none';
+        editButtonElement.style.display = 'inline-block';
+        saveButtonElement.style.display = 'none';
       }
     });
 
