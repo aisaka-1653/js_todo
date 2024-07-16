@@ -8,11 +8,11 @@ export class App {
   #todoListModel = new TodoListModel();
 
   handleAdd(title) {
-    this.#todoListModel.addTodo(new TodoItemModel({ title, completed: false }));
+    this.#todoListModel.addTodo(new TodoItemModel({ title, isCompleted: false }));
   }
 
-  handleUpdate({ id, completed }) {
-    this.#todoListModel.updateTodo({ id, completed });
+  handleUpdate({ id, isCompleted }) {
+    this.#todoListModel.updateTodo({ id, isCompleted });
   }
 
   handleEdit({ id, title }) {
@@ -35,8 +35,8 @@ export class App {
     this.#todoListModel.onchange(() => {
       const todoItems = this.#todoListModel.getTodoItems();
       const todoListElement = this.#todoListView.createElement(todoItems, {
-        onUpdateTodo: ({ id, completed }) => {
-          this.handleUpdate({ id, completed });
+        onUpdateTodo: ({ id, isCompleted }) => {
+          this.handleUpdate({ id, isCompleted });
         },
         onEditTodo: ({ id, title }) => {
           this.handleEdit({ id, title });
@@ -57,7 +57,7 @@ export class App {
       e.preventDefault();
       this.#todoListModel.addTodo(new TodoItemModel({
         title: inputElement.value,
-        completed: false,
+        isCompleted: false,
       }));
       inputElement.value = "";
     });

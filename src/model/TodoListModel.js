@@ -15,14 +15,14 @@ export class TodoListModel extends EventTarget {
 
   getDoneCount() {
     const completedItems = this.#items.filter(todo => {
-      return todo.completed === true;
+      return todo.isCompleted;
     });
     return completedItems.length;
   }
 
   getPendingCount() {
     const pendingItems = this.#items.filter(todo => {
-      return todo.completed === false;
+      return !todo.isCompleted;
     });
     return pendingItems.length;
   }
@@ -48,12 +48,12 @@ export class TodoListModel extends EventTarget {
     this.emitChange();
   }
 
-  updateTodo({ id, completed }) {
+  updateTodo({ id, isCompleted }) {
     const todoItem = this.#items.find(todo => todo.id === id);
     if (!todoItem) {
       return;
     }
-    todoItem.completed = completed;
+    todoItem.isCompleted = isCompleted;
     this.emitChange();
   }
 

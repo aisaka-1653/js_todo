@@ -3,12 +3,12 @@ let todoIdx = 0;
 export class TodoItemModel {
   id;
   title;
-  completed;
+  isCompleted;
   
-  constructor({ title, completed }) {
+  constructor({ title, isCompleted }) {
     this.id = todoIdx++;
     this.title = title;
-    this.completed = completed;
+    this.isCompleted = isCompleted;
   }
 
   isEmptyTitle() {

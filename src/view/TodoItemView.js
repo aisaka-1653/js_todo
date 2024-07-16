@@ -2,7 +2,7 @@ import { element } from "./html-util.js";
 
 export class TodoItemView {
   createElement(todoItem, { onUpdateTodo, onEditTodo, onDeleteTodo }) {
-    const todoItemElement = todoItem.completed
+    const todoItemElement = todoItem.isCompleted
       ? element`<li><input type="checkbox" class="checkbox" checked>
         <s class="todo-item-title">${todoItem.title}</s>
         <input type="text" class="edit-input" style="display: none;" value="${todoItem.title}">
@@ -28,7 +28,7 @@ export class TodoItemView {
     inputCheckboxElement.addEventListener("change", () => {
       onUpdateTodo({
         id: todoItem.id,
-        completed: !todoItem.completed
+        isCompleted: !todoItem.isCompleted
       });
     });
 
