@@ -3,9 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.min.css" />
+  <link rel="stylesheet" href="./style.css">
+  <title>ToDo List</title>
 </head>
 <body>
-  
+  <header>
+    <h1>ToDo List</h1>
+  </header>
+  <main>
+    <form id="js-form">
+      <fieldset role="group">
+        <input
+          id="js-form-input"
+          class="new-todo"
+          type="text"
+          placeholder="何をしますか?"
+        />
+        <input
+          id="js-form-submit"
+          type="submit"
+          value="保存"
+        />
+      </fieldset>
+    </form>
+    <hr>
+    <div id="js-todo-list" class="todo-list">
+    </div>
+    <hr>
+  </main>
+  <footer>
+    <progress id="js-progress-bar" value="0" max="1"></progress>
+    <div class="todo-progress">
+      <i>全てのタスク : <span id="js-todo-count">0</span></i>
+      <i>完了済み : <span id="js-done-count">0</span></i>
+      <i>未完了 : <span id="js-pending-count">0</span></i>
+    </div>
+  </footer>
+  <script type="module" src="./index.js"></script>
 </body>
 </html>
